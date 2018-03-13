@@ -40,6 +40,28 @@ const receivedData =(response)=>{
         case "EmailId":
             type="EmailId";
             break;
+        case "Greeting":
+            type="Greeting";
+            break;
+        case "Bye":
+            type="Bye";
+            break;
+        case "Forgot Network Name":
+            type="Forgot Network Name";
+            break;
+        case "Forgot Wifi Password":
+            type="Forgot Wifi Password";
+            break;
+        case "Reached Device Limit":
+            type="Reached Device Limit";
+            break;
+        case "Forgot Account ID":
+            type="Forgot Account ID";
+            break;
+        case "Forgot Account Pass Code":
+            type="Forgot Account Pass Code";
+            break;
+
     }
     return{
         type:type,
@@ -49,6 +71,7 @@ const receivedData =(response)=>{
 
 export const onOpen = () =>{
     return{
-        type:"start"
+        type:"start",
+        payload:null
     };
 };
