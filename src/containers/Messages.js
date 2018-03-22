@@ -7,7 +7,9 @@ import URL from "../components/chatTemplates/Bot/URL";
 import BotButtons from "../components/chatTemplates/Bot/BotButtons"
 import UserResponse from "../components/chatTemplates/User/UserResponse";
 import CustomRequest from "../components/chatTemplates/User/CustomRequest";
-import Time from "../components/chatTemplates/Time";
+import BotTime from "../components/chatTemplates/Bot/Time";
+import UserTime from "../components/chatTemplates/User/Time";
+
 
 class Messages extends Component {
     constructor(props) {
@@ -26,9 +28,10 @@ class Messages extends Component {
                 {
                     this.props.texts.map(text => (
                             <div key={v4()} className="d-flex flex-column">
-                                <Time/>
+                                <UserTime text={text}/>
                                 <UserResponse userResponse={text.userResponse}/>
                                 <CustomRequest userRequest ={text.customRequest}/>
+                                <BotTime time = {text.time}/>
                                 <BotReply reply={text.reply}/>
                                 <BotResponse response={text.response}/>
                                 <URL url={text.url}/>

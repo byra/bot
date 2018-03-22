@@ -9,19 +9,13 @@ class CustomRequest extends Component{
     render(){
         if(this.props.userRequest !== null){
             return(
-                <div className="d-flex flex-row-reverse chat-body__msg--div">
-                    <div className="p-2 rounded chat-body__msg">
-                        <p className="h5">{this.props.userRequest}</p>
-                    </div>
+                <div className="d-flex flex-row-reverse">
+                    <p className="h6 rounded chat-body__userMsg p-2">{this.props.userRequest}</p>
                 </div>
             );
         }
         else{
-            return(
-                <div>
-
-                </div>
-            )
+            return(null);
         }
 
     };

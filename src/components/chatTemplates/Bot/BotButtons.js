@@ -12,11 +12,11 @@ class BotButtons extends Component{
     render(){
         if(this.props.buttons) {
             return (
-                <div className="p-2 d-flex justify-content-start ">
+                <div className="d-flex justify-content-start my-1">
                     <div className="btn-group btn-group-sm">
                     {
                         this.props.buttons.map(button => (
-                            <button type="button" className="btn-sm btn-custom" role="group" key={v4()}
+                            <button type="button" className="btn btn-info mr-1 rounded" role="group" key={v4()}
                                     onClick={() => this.props.onRequest(button)}>{button}</button>
                         ))
                     }
@@ -25,9 +25,7 @@ class BotButtons extends Component{
             );
         }
         else{
-            return(<div>
-
-            </div>)
+            return(null);
         }
     };
 }

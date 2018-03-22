@@ -3,6 +3,8 @@ import {Component} from "react";
 import {connect} from "react-redux";
 import {onRequest} from "../actions/chatMessages";
 import Chat from "./Chat"
+import voice from "../assets/images/voice.svg"
+
 
 class ChatArea extends Component {
 
@@ -24,23 +26,38 @@ class ChatArea extends Component {
                 <div className="row justify-content-start">
                     <div className="col">
                         <div className="chat-footer">
-                            <div className="container chat-text">
+                            <div className="container">
                                 <div className="row justify-content-start input-group input-group-lg">
-                                    <input type="text" className="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
-                                           ref={node =>
-                                                {
-                                                    userMsg = node
-                                                }
-                                            }
-                                           onKeyPress={
-                                               (event) => {
-                                                   if (event.key === 'Enter' && userMsg.value.trim() !== "") {
-                                                       this.props.fetchResponse(userMsg.value.trim());
-                                                       userMsg.value = "";
+                                    <div className="col">
+                                        <div className="d-flex justify-content-between">
+                                            <input type="text" className="form-control mr-1" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+                                                   ref={node =>
+                                                   {
+                                                       userMsg = node
                                                    }
-                                               }
-                                           }
-                                    />
+                                                   }
+                                                   onKeyPress={
+                                                       (event) => {
+                                                           if (event.key === 'Enter' && userMsg.value.trim() !== "") {
+                                                               this.props.fetchResponse(userMsg.value.trim());
+                                                               userMsg.value = "";
+                                                           }
+                                                       }
+                                                   }
+                                            />
+                                            <button className="btn btn-primary" onClick={
+                                                (event) => {
+                                                    if (userMsg.value.trim() !== "") {
+                                                        this.props.fetchResponse(userMsg.value.trim());
+                                                        userMsg.value = "";
+                                                    }
+                                                }
+                                            }>
+                                                Send
+                                            </button>
+                                            <img src={voice}/>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
